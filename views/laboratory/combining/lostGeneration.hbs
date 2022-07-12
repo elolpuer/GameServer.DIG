@@ -1,0 +1,85 @@
+<h3>Combining</h3>
+
+<h4>Chance: {{chance}}%</h4>
+<form action="/laboratory/combining/lost/canmint" method="POST">
+    <h6>Substrate</h6>
+    <ul>
+        {{#each substrate}}
+            <li>
+                <input type="radio" name="soil" value="{{soil}}" 
+                    {{#if notEnough}}
+                        disabled
+                    {{/if}}
+                    required/>Soil: {{soil}} - Amount: {{amount}}
+            </li>
+        {{/each}}
+    </ul>
+    <h3>Enter Assets That You Have</h3>
+    <ol>
+        <li>
+            <input type="number" placeholder="Asset ID Part1 in User Table" name="part1" required/>
+            Torso -
+            In Your DB IDs:
+            {{#each part1}}
+                {{id}},
+            {{/each}}
+        </li>
+        <li>
+            <input type="number" placeholder="Asset ID Part2 in User Table" name="part2" required/>
+            Head -
+            In Your DB IDs:
+            {{#each part2}}
+                {{id}},
+            {{/each}}
+        </li>
+        <li>
+            <input type="number" placeholder="Asset ID Part3 in User Table" name="part3" required/>
+            Left hand -
+            In Your DB IDs:
+            {{#each part3}}
+                {{id}},
+            {{/each}}
+        </li>
+        <li>
+            <input type="number" placeholder="Asset ID Part4 in User Table" name="part4" required/>
+            Right hand -
+            In Your DB IDs:
+            {{#each part4}}
+                {{id}},
+            {{/each}}
+        </li>
+        <li>
+            <input type="number" placeholder="Asset ID Part5 in User Table" name="part5" required/>
+            Legs -
+            In Your DB IDs:
+            {{#each part5}}
+                {{id}},
+            {{/each}}
+        </li>
+        <li>
+            <input type="number" placeholder="Asset ID Part14 in User Table" name="part14" required/>
+            Nimbus -
+            In Your DB IDs:
+            {{#each part14}}
+                {{id}},
+            {{/each}}
+        </li>
+    </ol>
+    <button type="submit">Combine</button>
+</form>
+{{#if canmint}}
+    <h6>
+        Mint
+    </h6>
+        <input type="hidden" id="v" value="{{v}}">
+        <input type="hidden" id="r" value="{{r}}">
+        <input type="hidden" id="s" value="{{s}}">
+        <input type="hidden" id="url" value="{{url}}">
+        <button type="button" class="btn btn-primary" onclick="toggleButton()">MINT</button>
+{{else}}
+    <h6>
+        You cant mint
+    </h6>
+{{/if}}
+<script src="../../js/lab/combining.js">
+</script>

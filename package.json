@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-basic-auth": "^1.2.1",
+    "htpasswd-js": "^1.0.2",
+    "http-auth": "^4.1.9",
+    "nodemon": "^2.0.15",
+    "web3": "^1.7.0",
+    "config": "^3.3.7",
+    "dotenv": "^10.0.0",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "path": "^0.12.7",
+    "pg": "^8.7.3"
+  }
+}

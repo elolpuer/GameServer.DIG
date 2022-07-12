@@ -1,0 +1,82 @@
+<form action="/psycho/add?id=1" method="POST">
+        <button type="submit" class="btn btn-dark">Catch Psychosphere - Soil 1</button>
+</form>
+<form action="/psycho/add?id=2" method="POST">
+        <button type="submit" class="btn btn-dark">Catch Psychosphere - Soil 2</button>
+</form>
+<form action="/psycho/add?id=3" method="POST">
+        <button type="submit" class="btn btn-dark">Catch Psychosphere - Soil 3</button>
+</form>
+<form action="/psycho/add?id=4" method="POST">
+        <button type="submit" class="btn btn-dark">Catch Psychosphere - Soil 4</button>
+</form>
+<h3>Inventory</h3>
+<ul class="inventory">
+        <li class="one">
+                <ul>
+                        <h5>Augmentations</h5>
+                        {{#each augmentations}}
+                                <li class="brd">
+                                        <span>
+                                                <form action="/session/decrease_a" method="post">
+                                                        <input type="hidden" name="id" value="{{id}}">
+                                                        <button type="submit" class="btn btn-success">Use</button>
+                                                </form>
+                                        </span>
+                                        <span>
+                                                Name:{{name}}
+                                                Amount:{{amount}}
+                                        </span>
+                                </li>
+                        {{/each}}
+                </ul>
+        </li>
+        <li class="one">
+                <ul>
+                        <h5>Things</h5>
+                        {{#each things}}
+                                <li class="brd">
+                                        <span>
+                                                <form action="/session/decrease_t" method="post">
+                                                        <input type="hidden" name="id" value="{{id}}">
+                                                        <button type="submit" class="btn btn-success">Use</button>
+                                                </form>
+                                        </span>
+                                        ID:{{name}}
+                                        Amount:{{amount}}
+                                </li>
+                        {{/each}}
+                </ul>
+        </li>
+        <li class="one">
+                <ul>
+                        <h5>Resources</h5>
+                        {{#each resources}}
+                                <li class="brd">
+                                        <span>
+                                                <form action="/session/decrease_r" method="post">
+                                                        <input type="hidden" name="id" value="{{id}}">
+                                                        <button type="submit" class="btn btn-success">Use</button>
+                                                </form>
+                                        </span>
+                                        ID:{{name}}
+                                        Amount:{{amount}}
+                                </li>
+                        {{/each}}
+                </ul>
+        </li>
+</ul>
+
+<style>
+   .brd {
+    border: 4px groove rgb(79, 39, 39); /* Параметры границы */
+    background: rgb(255, 255, 255); /* Цвет фона */
+   }
+   ul.inventory {
+    margin: 0; /* Обнуляем значение отступов */
+   }
+   ul.inventory li.one {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+   }
+</style>

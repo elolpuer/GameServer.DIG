@@ -1,0 +1,36 @@
+<h3>
+    Conservation
+</h3>
+<h4>
+    Abilities
+</h4>
+<form action="/laboratory/conservation" method="POST">
+    <input type="number" min="1" class="form-control" id="card" name="card" value={{cardID}} required>
+    <button type="submit" class="btn btn-info">Get Card Abilities</button>
+</form>
+<div>
+    Conserved:
+    <p>Ability ID: {{conservationAbility}}</p>
+    <p>Card ID: {{conservationCardID}}</p>
+    <p>When Ended: {{conservationWhenEnded}}</p>
+    <form action="/laboratory/conservation/end" method="POST">
+        <input type="hidden" name="card" value="{{conservationCardID}}"/>
+        <button type="submit">End Conservation</button>
+    </form>
+</div>
+{{#if abilities}}
+    <span>ID: </span><input type="number" min="1" class="form-control" id="ability" name="ability" value="1">
+    <button type="submit" class="btn btn-success" onclick="toggleButton()">Conserve</button>
+    <span>Price: 0.05 DBT</span>
+{{/if}}
+<ul>
+    <h5>Initial Abilities</h5>
+    {{#each alwaysAbilities}}
+        <li>
+            <span>ID: {{id}}</span>
+            <span class="alwaysAbility">Value:  <span>{{value}}</span></span>
+        </li>
+    {{/each}}
+</ul>
+<script src="../js/lab/conservation.js">
+</script>

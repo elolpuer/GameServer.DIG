@@ -1,0 +1,17 @@
+<h1>Assets</h1>
+{{#each assets}}
+    <form action="/market/assets/sell" method="POST">
+        <p>ID: {{id}}</p>
+        <input type="hidden" name="assetID" value="{{id}}"/>
+        <p>Part: {{part}}</p>
+        <p>Layer: {{layer}}</p>
+        <p>Type: {{type}}</p>
+        <p>Name: {{name}}</p>
+        <p>UserAsserID: {{assetIDInUserTable}}</p>
+        
+        <input type="hidden" name="assetUserID" value="{{assetIDInUserTable}}"/>
+        <img height="200px" width="200px" src="{{url}}" alt="альтернативный текст">
+        <input type="number" name="price" placeholder="Price in DBT"/>
+        <button type="submit">Send to market</button>
+    </form>    
+{{/each}}

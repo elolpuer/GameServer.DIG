@@ -1,0 +1,14 @@
+<h1>Store Resources</h1>
+<p>
+  <a href="/store">Back To Store</a>
+</p>
+<p>Price: {{price}}</p>
+<form action="/store/augmentations/buy" method="POST">
+    {{#each resources}}
+      <span>{{name}}</span>
+      <span><input type="number" min="0" value="0" class="form-control" aria-describedby="emailHelp" name="augment{{id}}"></span>
+    {{/each}}
+    <button type="button" class="btn btn-success" onclick="toggleButton()">Buy</button>
+</form>
+<script src="../js/store/buyResources.js">
+</script>

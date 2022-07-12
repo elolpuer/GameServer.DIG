@@ -1,0 +1,91 @@
+<h3>
+    PVP
+</h3>
+<p>
+    <form action="/pvp/write_winner_wo_payoff" method="post">
+        <span>
+            <input type="hidden" name="loser" value="0xdE7f42bDA25D749127c4694164aB557821A83b96"/>
+            <input type="hidden" name="cardWinner" value="1"/>
+            <input type="hidden" name="cardLoser" value="2"/>
+            <button type="submit" class="btn btn-success">
+                Write WO Payoff Win
+            </button>
+        </span>
+    </form>
+    <form action="/pvp/write_winner_w_payoff" method="post">
+        <span>
+            <input type="hidden" name="loser" value="0xdE7f42bDA25D749127c4694164aB557821A83b96"/>
+            <input type="hidden" name="cardWinner" value="1"/>
+            <input type="hidden" name="cardLoser" value="2"/>
+            <button type="submit" class="btn btn-success">
+                Write W Payoff Win
+            </button>
+        </span>
+    </form>
+    <form action="/pvp/write_loser" method="post">
+        <span>
+            <input type="hidden" name="winner" value="0xD397E6337F882Ba0fB48C5E4A9E52ABfaFD88131"/>
+            <input type="hidden" name="card" value="2"/>
+            <button type="submit" class="btn btn-danger">
+                Write Lose
+            </button>
+        </span>
+    </form>
+    <button class="btn btn-danger">
+        Payoff
+    </button>
+    <p>Wins - {{wins}}</p>
+    <p>Loses - {{loses}}</p>
+    <br/>
+    <p>Loser Address - {{loser}}</p>
+    <p>Loser Assets Amount - {{loserAssetsAmount}}</p>
+    <form method="POST" action="/assets/addloser">
+        <button type="submit" class="btn btn-primary">Add 14 Assets To Loser (TEST)</button>
+    </form>
+    <br/>
+<h3>Loser's Inventory</h3>
+<form method="POST" action="/inventory/addloser">
+        <button type="submit" class="btn btn-primary">Set 10 To Each Loser Inventory (TEST)</button>
+    </form>
+<ul class="inventory">
+        <li class="one">
+                <ul>
+                        <h5>Augmentations</h5>
+                        {{#each augmentations}}
+                                <li class="brd">
+                        
+                                        <span>
+                                                Name:{{name}}
+                                                Amount:{{amount}}
+                                        </span>
+                                </li>
+                        {{/each}}
+                </ul>
+        </li>
+        <li class="one">
+                <ul>
+                        <h5>Things</h5>
+                        {{#each things}}
+                                <li class="brd">
+                                       
+                                        ID:{{name}}
+                                        Amount:{{amount}}
+                                </li>
+                        {{/each}}
+                </ul>
+        </li>
+        <li class="one">
+                <ul>
+                        <h5>Resources</h5>
+                        {{#each resources}}
+                                <li class="brd">
+                                       
+                                        ID:{{name}}
+                                        Amount:{{amount}}
+                                </li>
+                        {{/each}}
+                </ul>
+        </li>
+</ul>
+
+</p>

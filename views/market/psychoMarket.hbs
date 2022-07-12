@@ -1,0 +1,26 @@
+<h4>
+    Psycho Market
+</h4>
+<h3>
+    Your Psycho On Market
+</h3>
+{{#each userItems}}
+    <form action="/market/psycho/delete" method="post">
+        <p>PsychoID: {{psychoid}}</p>
+        <p id="owner-{{id}}">Owner: {{owner}}</p>
+        <p>Price: {{price}} DBT</p>
+        <input type="hidden" name="marketID" value="{{id}}"/>
+        <button type="submit">DELETE</button>
+    </form>
+{{/each}}
+<h3>
+    All Psycho On Market
+</h3>
+{{#each items}}
+        <p>PsychoID: {{psychoid}}</p>
+        <p id="owner-{{id}}">Owner: {{owner}}</p>
+        <p>Price: {{price}} DBT</p>
+        <button type="button" onclick="toggleButton({{id}}, {{price}})">BUY</button>
+{{/each}}
+<script src="../../js/market/buyPsycho.js">
+</script>

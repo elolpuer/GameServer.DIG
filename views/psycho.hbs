@@ -1,0 +1,33 @@
+<h3>
+    Psychospheres
+</h3>
+{{#each psychospheres}}
+    <div class="psychosphere">
+    <form action="/psycho/open?id={{id}}" method="POST">
+        <div>
+            <p>Open: {{open}}</p>
+            <p>Looted: {{looted}}</p>
+            {{#if open}}
+            <p>AssetID: {{assetid}}</p>
+            {{/if}}
+            <p>Owner: {{owner}}</p>
+        </div>
+        <button type="submit" class="btn btn-dark">Open</button>
+    </form>
+    <form action="/psycho/loot?id={{id}}" method="POST">
+        <button type="submit" class="btn btn-primary">Loot</button>
+    </form>
+     </div>
+     <style type="text/css">
+         .psychospheres {
+            border-width:1;
+            border-color: rgb(0, 0, 0);
+            border-style: solid;
+        }
+     </style>
+     <form action="/market/psycho/sell" method="POST">
+        <input type="hidden" name="psychoID" value="{{id}}"/>
+        <input type="number" name="price" placeholder="Price In DBT">
+        <button type="submit">Sell</button>
+     </form>
+{{/each}}

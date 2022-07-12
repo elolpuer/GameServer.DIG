@@ -1,0 +1,30 @@
+<h3 id="h">
+    User Cards
+</h3>
+<button type="button" onclick="getCards()">Get Cards</button>
+<form action="/cards/get" method="POST" id="getForm">
+</form>
+<div>
+    {{#each cards}}
+            <p class="cardID">ID: {{id}}</p>
+            <h6>Num Ability</h6>
+            {{#each numAbilities}}
+                <p>ID:{{id}};Value: {{value}}</p>
+            {{/each}}
+            <h6>Always Ability</h6>
+            <div class="alwaysAb">
+                {{#each alwaysAbilities}}
+                    <p>ID:{{id}};Value: {{value}}</p>
+                {{/each}}
+            </div>
+            <h6>Bool Ability</h6>
+            {{#each boolAbilities}}
+                <p>ID:{{id}};Value: {{value}}</p>
+            {{/each}}
+            <h6>Conservation - {{conservation}}</h6>
+            {{!-- <hr align="" width="1000" size="10" color="#ff0000" /> --}}
+            <hr align="center" width="500" size="2" color="#ff0000" />
+    {{/each}}
+</div>
+<script src="../../js/cards/cards.js">
+</script>

@@ -1,0 +1,27 @@
+<h4>
+    Assets Market
+</h4>
+<h3>
+    Your assets on market
+</h3>
+{{#each userItems}}
+    <form action="/market/assets/delete" method="post">
+        <p>AssetID: {{assetid}}</p>
+        <img height="200px" width="200px" src="{{url}}" alt="альтернативный текст">
+        <p>Price: {{price}} DBT</p>
+        <input type="hidden" name="marketID" value="{{id}}"/>
+        <button type="submin">DELETE</button>
+    </form>
+{{/each}}
+<h3>
+    All assets on market
+</h3>
+{{#each items}}
+        <p>AssetID: {{assetid}}</p>
+        <img height="200px" width="200px" src="{{url}}" alt="альтернативный текст">
+        <p id="owner-{{id}}">Owner: {{owner}}</p>
+        <p>Price: {{price}} DBT</p>
+        <button type="button" onclick="toggleButton({{id}}, {{price}})">BUY</button>
+{{/each}}
+<script src="../../js/market/buyAsset.js">
+</script>

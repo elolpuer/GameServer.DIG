@@ -1,0 +1,252 @@
+create table augmentations(
+id integer,
+amount integer,
+owner varchar(256)
+);
+create table things(
+id integer,
+amount integer,
+owner varchar(256)
+);
+create table resources(
+id integer,
+amount integer,
+owner varchar(256)
+);
+create table users(
+address varchar(256),
+win_pvp_amount integer,
+lose_pvp_amount integer,
+username varchar(256) UNIQUE
+);
+create table psychospheres(
+id serial primary key,
+owner varchar(256),
+open boolean,
+looted boolean,
+assetID integer
+);
+create table substrate(
+soil integer,
+amount real,
+owner varchar(256)
+);
+create table assets(
+id serial primary key,
+url varchar(256),
+layer integer,
+part integer,
+type varchar(256),
+kind varchar(256),
+name varchar(256)
+);
+create table userAssets(
+id serial primary key,
+userAddress varchar(256),
+assetID integer
+);
+create table cardNumAbilities(
+id integer,
+value integer,
+cardID integer
+);
+create table cardAlwaysNumAbilities(
+id integer,
+value integer,
+cardID integer
+);
+create table cardBoolAbilities(
+id integer,
+value bool,
+cardID integer
+);
+create table conservation(
+id integer,
+cardID integer,
+whenEnded timestamp
+);
+create table combiningChance(
+userAddress varchar(256),
+chance integer
+);
+create table marketAssetItem(
+id serial primary key,
+assetID integer,
+assetIDInUserTable integer,
+owner varchar(256),
+buyer varchar(256),
+price integer,
+sold bool
+);
+create table marketPsychoItem(
+id serial primary key,
+psychoID integer,
+owner varchar(256),
+buyer varchar(256),
+price integer,
+sold bool
+);
+create table cardspvp(
+card_id integer,
+win_amount integer,
+lose_amount integer
+);
+create table pvp(
+id serial primary key,
+winner varchar(256),
+loser varchar(256),
+winner_card_id integer,
+loser_card_id integer
+);
+
+drop table things;
+drop table resources;
+drop table augmentations;
+drop table users;
+drop table psychospheres;
+drop table assets;
+drop table userAssets;
+drop table cardBoolAbilities;
+drop table cardNumAbilities;
+drop table cardAlwaysNumAbilities;
+drop table conservation;
+drop table substrate;
+drop table marketAssetItem;
+drop table marketPsychoItem;
+
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://mir-s3-cdn-cf.behance.net/project_modules/1400/3a56ac60965041.5a73291873fe7.jpg', 4, 1, 'usual', 'torso');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZRMumisnEESDdx-GB_UHZD2vllMj9seK0Q&usqp=CAU', 5, 2, 'usual', 'head');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://cdnb.artstation.com/p/assets/images/images/010/429/917/large/gopal-singh-negi-view-1.jpg?1524404205', 6, 3, 'usual', 'left hand');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://cdna.artstation.com/p/assets/images/images/010/429/954/large/gopal-singh-negi-view-3.jpg?1524404370', 7, 4, 'usual', 'right hand');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://cdna.artstation.com/p/assets/images/images/027/559/834/large/my-hero-models-5.jpg?1591881679', 8, 5, 'usual', 'legs');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://st.depositphotos.com/2011847/3251/v/600/depositphotos_32515763-stock-illustration-glowing-eyes.jpg', 9, 6, 'usual', 'burning/smoking eyes');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://images.saymedia-content.com/.image/t_share/MTc0NDU3ODczMDU5ODE3MDk0/best-video-game-masks.jpg', 10, 7, 'usual', 'masks');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://donjon.ru/images/1c/93/9328d52f-6ee2-11e5-94ef-002590a35116_c1b75f2b-6ee2-11e5-94ef-002590a35116.jpg', 11, 8, 'usual', 'bib');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxxZxA2Mp2Kl_6U3HWXezZYWR-40-4OTSO8A&usqp=CAU', 12, 9, 'usual', 'shoulder pads');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://wow.zamimg.com/modelviewer/live/webthumbs/item/189/107197.png', 13, 10, 'usual', 'belt');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://png.pngtree.com/element_our/png/20181002/cartoon-hand-painted-game-wings-element-png_108891.jpg', 14, 11, 'usual', 'hind limbs/wings');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://cdn.dribbble.com/users/31625/screenshots/15010094/media/9c9fe9f98542bd0205b73108f2329cf8.jpg?compress=1&resize=400x300', 15, 12, 'usual', 'limbs on chest');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://i.pinimg.com/736x/be/61/32/be6132519a4c529c4e10d28755160883--game-interface-game-icon.jpg', 16, 13, 'usual', 'details on the head');
+INSERT INTO assets (url, layer, part, type, name) VALUES('https://media.istockphoto.com/vectors/golden-nimbus-holy-angel-nimbus-vector-illustration-vector-id1146078734', 17, 14, 'usual', 'nimbus');
+
+
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(1, 1, 1);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(2, 2, 1);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(3, 3, 1);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(4, 4, 1);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(5, 5, 1);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(6, 6, 1);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(7, 7, 1);
+
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(1, 1, 1);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(2, 2, 1);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(3, 3, 1);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(4, 4, 1);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(5, 5, 1);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(6, 6, 1);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(7, 7, 1);
+
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(1, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(2, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(3, true, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(4, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(5, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(6, true, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(7, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(8, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(9, false, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(10, true, 1);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(11, false, 1);
+
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(1, 1, 10);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(2, 2, 10);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(3, 3, 10);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(4, 4, 10);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(5, 5, 10);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(6, 6, 10);
+INSERT INTO cardNumAbilities (id, value, cardid) VALUES(7, 7, 10);
+
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(1, 1, 10);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(2, 2, 10);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(3, 3, 10);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(4, 4, 10);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(5, 5, 10);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(6, 6, 10);
+INSERT INTO cardAlwaysNumAbilities (id, value, cardid) VALUES(7, 7, 10);
+
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(1, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(2, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(3, true, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(4, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(5, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(6, true, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(7, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(8, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(9, false, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(10, true, 10);
+INSERT INTO cardBoolAbilities (id, value, cardid) VALUES(11, false, 10);
+
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 1);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 2);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 3);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 4);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 5);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 6);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 7);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 8);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 9);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 10);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 11);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 12);
+INSERT INTO userassets (useraddress, assetid) VALUES('0xdE7f42bDA25D749127c4694164aB557821A83b96', 13);
+
+INSERT INTO userassets (useraddress, assetid) VALUES('0x03f6de3527bf484a1c64eb9430498581a28b634e', 6);
+
+INSERT INTO userassets (useraddress, assetid) VALUES('0x13d5BF04B0D393e0D026126bBDD44fC33e9A7555', 1);
+INSERT INTO userassets (useraddress, assetid) VALUES('0x13d5BF04B0D393e0D026126bBDD44fC33e9A7555', 2);
+INSERT INTO userassets (useraddress, assetid) VALUES('0x13d5BF04B0D393e0D026126bBDD44fC33e9A7555', 3);
+INSERT INTO userassets (useraddress, assetid) VALUES('0x13d5BF04B0D393e0D026126bBDD44fC33e9A7555', 4);
+INSERT INTO userassets (useraddress, assetid) VALUES('0x13d5BF04B0D393e0D026126bBDD44fC33e9A7555', 5);
+INSERT INTO userassets (useraddress, assetid) VALUES('0x13d5BF04B0D393e0D026126bBDD44fC33e9A7555', 6);
+
+INSERT INTO things (id, amount, owner) VALUES(0, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO things (id, amount, owner) VALUES(1, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO things (id, amount, owner) VALUES(2, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO things (id, amount, owner) VALUES(3, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO things (id, amount, owner) VALUES(4, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+
+INSERT INTO augmentations (id, amount, owner) VALUES(0, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(1, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(2, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(3, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(4, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(5, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(6, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(7, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO augmentations (id, amount, owner) VALUES(8, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+
+INSERT INTO resources (id, amount, owner) VALUES(0, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO resources (id, amount, owner) VALUES(1, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO resources (id, amount, owner) VALUES(2, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+INSERT INTO resources (id, amount, owner) VALUES(3, 10, '0xdE7f42bDA25D749127c4694164aB557821A83b96');
+
+UPDATE things SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=1;
+UPDATE things SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=2;
+UPDATE things SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=3;
+UPDATE things SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=4;
+UPDATE things SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=5;
+
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=1;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=2;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=3;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=4;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=5;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=6;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=7;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=8;
+UPDATE augmentations SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=9;
+
+UPDATE resources SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=1;
+UPDATE resources SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=2;
+UPDATE resources SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=3;
+UPDATE resources SET amount=amount+1 WHERE owner='0xdE7f42bDA25D749127c4694164aB557821A83b96' AND id=4;
